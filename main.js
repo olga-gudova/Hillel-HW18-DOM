@@ -1,4 +1,3 @@
-
 function generateList(array) {
     const $ul = document.createElement('ul');
     
@@ -21,7 +20,8 @@ function generateList(array) {
                 } else return 'Your inner array contains invalid elements';
             });
 
-            $li.innerHTML = $ulInner;
+            $li.append($ulInner);
+
         } else return 'Your array contains invalid elements';
 
         $ul.append($li);
@@ -33,3 +33,22 @@ function generateList(array) {
 const arr = [5, 86, [32, 94], 25, 1];
 
 generateList(arr);
+
+// Вывести таблицу 10 × 10, заполненную числами от 1 до 100
+
+const $table = document.createElement('table');
+
+for (let i = 0; i < 10; i++) {
+    let $tr = document.createElement('tr');
+
+    for (let j = 1; j <= 10; j++) {
+        let $td = document.createElement('td');
+        $td.textContent = `${i*10 + j}`;
+
+        $tr.append($td);
+    }
+    
+    $table.append($tr);
+}
+
+document.body.append($table);
